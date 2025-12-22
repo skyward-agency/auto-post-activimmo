@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ActivImmo Social Connect</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(135deg, #010569 0%, #0234D3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(2, 52, 211, 0.3);
+            text-align: center;
+        }
+        .logo { margin-bottom: 40px; }
+        .logo h1 { 
+            font-family: 'Sora', sans-serif;
+            color: #242f51;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .logo p { 
+            color: #666; 
+            font-size: 16px; 
+            font-family: 'Rubik', sans-serif;
+        }
+        .subtitle {
+            font-family: 'Sora', sans-serif;
+            color: #242f51;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+        .networks {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .network-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px;
+            background: linear-gradient(135deg, #010569 0%, #0234d3 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Rubik', sans-serif;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .network-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(2, 52, 211, 0.4);
+        }
+        .network-btn.facebook { background: linear-gradient(135deg, #1877f2 0%, #0d5ebd 100%); }
+        .network-btn.twitter { background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%); }
+        .network-btn.linkedin { background: linear-gradient(135deg, #0077b5 0%, #005a8c 100%); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>🚀 ActivImmo Social Connect</h1>
+            <p>Plateforme de connexion multi-réseaux</p>
+        </div>
+        
+        <p class="subtitle">Choisissez votre réseau social :</p>
+        
+        <div class="networks">
+            <a href="/facebook" class="network-btn facebook">
+                📘 Facebook & Instagram
+            </a>
+            
+            <a href="/x" class="network-btn twitter">
+                🐦 Twitter / X
+            </a>
+            
+            <a href="/linkedin" class="network-btn linkedin">
+                💼 LinkedIn
+            </a>
+        </div>
+    </div>
+</body>
+</html>
