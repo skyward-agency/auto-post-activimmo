@@ -68,10 +68,14 @@
                 const pagesRes = await fetch(`https://graph.facebook.com/v18.0/me/accounts?access_token=${accessToken}`);
                 const pagesData = await pagesRes.json();
                 
+                // DEBUG
+                console.log('Pages data:', pagesData);
+                alert('Debug pages: ' + JSON.stringify(pagesData));
+                
                 if (!pagesData.data || pagesData.data.length === 0) {
-    throw new Error('Aucune page trouvée');
-}
-const page = pagesData.data[0];
+                    throw new Error('Aucune page trouvée. Data: ' + JSON.stringify(pagesData));
+                }
+                const page = pagesData.data[0];
                 
                 // Récupérer Instagram
                 let instagramId = null;
