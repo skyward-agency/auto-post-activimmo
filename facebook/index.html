@@ -29,9 +29,7 @@
         .logo { text-align: center; margin-bottom: 30px; }
         .logo h1 { 
             font-family: 'Sora', sans-serif;
-            background: linear-gradient(135deg, #010569 0%, #0234d3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #242f51;
             font-size: 28px;
             font-weight: 700;
             margin-bottom: 5px;
@@ -76,20 +74,6 @@
             box-shadow: 0 5px 15px rgba(2, 52, 211, 0.4);
         }
         .connect-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        .info-box {
-            background: linear-gradient(135deg, rgba(1, 5, 105, 0.1) 0%, rgba(2, 52, 211, 0.1) 100%);
-            border-left: 4px solid #0234d3;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 13px;
-            margin-top: 20px;
-            font-family: 'Rubik', sans-serif;
-        }
-        .info-box strong {
-            background: linear-gradient(135deg, #010569 0%, #0234d3 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
     </style>
 </head>
 <body>
@@ -104,9 +88,6 @@
         <button class="connect-btn" id="connectBtn" disabled onclick="connectFacebook()">
             Connecter Facebook & Instagram
         </button>
-        <div class="info-box">
-            <strong>Info:</strong> Vous autorisez ActivImmo à publier sur vos pages.
-        </div>
     </div>
     <script>
         const FB_APP_ID = '1373827507575415';
