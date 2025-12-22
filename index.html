@@ -92,7 +92,7 @@
             const clientId = document.getElementById('clientId').value.trim();
             if (!clientId) return;
             
-            const permissions = 'pages_manage_posts,pages_read_engagement,instagram_basic,instagram_content_publish';
+            const permissions = 'pages_show_list,pages_read_engagement';
             const authUrl = `https://www.facebook.com/v18.0/dialog/oauth?client_id=${FB_APP_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${permissions}&response_type=code&state=${clientId}`;
             window.location.href = authUrl;
         }
