@@ -65,57 +65,38 @@
                 document.getElementById('status').textContent = 'Récupération des pages...';
                 
                 // Récupérer les pages (méthode directe ET Business Manager)
-let pages = [];
-
-// Méthode 1: Pages directes (/me/accounts)
-try {
-    const directPagesRes = await fetch(`https://graph.facebook.com/v18.0/me/accounts?access_token=${accessToken}`);
-    const directPagesData = await directPagesRes.json();
-    if (directPagesData.data && directPagesData.data.length > 0) {
-        pages = pages.concat(directPagesData.data);
-    }
-} catch (e) {
-    console.log('Erreur pages directes:', e);
-}
-
-// Méthode 2: Pages via Business Manager
-try {
-    const businessPagesRes = await fetch(`https://graph.facebook.com/v18.0/me?fields=businesses{pages{id,name,access_token}}&access_token=${accessToken}`);
-    const businessPagesData = await businessPagesRes.json();
-    if (businessPagesData.businesses && businessPagesData.businesses.data) {
-        for (const business of businessPagesData.businesses.data) {
-            if (business.pages && business.pages.data) {
-                pages = pages.concat(business.pages.data);
-            }
-        }
-    }
-} catch (e) {
-    console.log('Erreur pages Business Manager:', e);
-}
-
-// DEBUG
-console.log('Pages trouvées:', pages);
-alert('Debug pages: ' + JSON.stringify(pages));
-
-if (pages.length === 0) {
-    throw new Error('Aucune page trouvée');
-}
-const page = pages[0];
-                
-                // Extraire les pages
                 let pages = [];
-                if (pagesData.businesses && pagesData.businesses.data) {
-                    for (const business of pagesData.businesses.data) {
-                        if (business.pages && business.pages.data) {
-                            pages = pages.concat(business.pages.data);
+
+                // Méthode 1: Pages directes (/me/accounts)
+                try {
+                    const directPagesRes = await fetch(`https://graph.facebook.com/v18.0/me/accounts?access_token=${accessToken}`);
+                    const directPagesData = await directPagesRes.json();
+                    if (directPagesData.data && directPagesData.data.length > 0) {
+                        pages = pages.concat(directPagesData.data);
+                    }
+                } catch (e) {
+                    console.log('Erreur pages directes:', e);
+                }
+
+                // Méthode 2: Pages via Business Manager
+                try {
+                    const businessPagesRes = await fetch(`https://graph.facebook.com/v18.0/me?fields=businesses{pages{id,name,access_token}}&access_token=${accessToken}`);
+                    const businessPagesData = await businessPagesRes.json();
+                    if (businessPagesData.businesses && businessPagesData.businesses.data) {
+                        for (const business of businessPagesData.businesses.data) {
+                            if (business.pages && business.pages.data) {
+                                pages = pages.concat(business.pages.data);
+                            }
                         }
                     }
+                } catch (e) {
+                    console.log('Erreur pages Business Manager:', e);
                 }
-                
+
                 // DEBUG
                 console.log('Pages trouvées:', pages);
                 alert('Debug pages: ' + JSON.stringify(pages));
-                
+
                 if (pages.length === 0) {
                     throw new Error('Aucune page trouvée');
                 }
