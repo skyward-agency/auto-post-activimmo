@@ -4,99 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>ActivImmo & Skyward</title>
+    <title>Sous-domaine - Skyward Agency</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background: #0f1419;
+        }
+        
         body {
             font-family: 'Rubik', sans-serif;
-            background: linear-gradient(135deg, #010569 0%, #0234D3 100%);
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            background-attachment: fixed;
             min-height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        .container {
-            background: white;
-            border-radius: 20px;
-            padding: 50px 40px;
-            max-width: 600px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(2, 52, 211, 0.3);
-            text-align: center;
-        }
-        .logo { margin-bottom: 40px; }
-        .logo h1 { 
-            font-family: 'Sora', sans-serif;
-            color: #242f51;
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .logo p { 
-            color: #666; 
-            font-size: 16px; 
-            font-family: 'Rubik', sans-serif;
-        }
-        .subtitle {
-            font-family: 'Sora', sans-serif;
-            color: #242f51;
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        .networks {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .network-btn {
-            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 18px;
-            background: linear-gradient(135deg, #010569 0%, #0234d3 100%);
             color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Rubik', sans-serif;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .network-btn.facebook { background: linear-gradient(135deg, #1877f2 0%, #0d5ebd 100%); }
-        .network-btn.twitter { background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%); }
-        .network-btn.linkedin { background: linear-gradient(135deg, #0077b5 0%, #005a8c 100%); }
+        
+        /* Animation de particules en arrière-plan */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            object-fit: contain;
+        }
+        
+        h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: #FFF;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .message {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        
+        .message h2 {
+            font-family: 'Sora', sans-serif;
+            color: #3b82f6;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .message h2::before {
+            content: "🔒";
+            margin-right: 10px;
+        }
+        
+        .message p {
+            font-family: 'Rubik', sans-serif;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(90deg, #010569, #0234D3);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #010569, #0234D3);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #64748b;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 400;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .message {
+                padding: 20px;
+                text-align: left;
+            }
+            
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animation d'entrée */
+        .container {
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Particules animées -->
+    <div class="particles" id="particles"></div>
+    
     <div class="container">
-        <div class="logo">
-            <h1>ActivImmo & Skyward</h1>
-            <p>Plateforme de connexion aux réseaux sociaux</p>
+        <!-- Logo -->
+        <img src="https://skyward-agency.com/wp-content/uploads/2025/01/Logo-seul-sans-fond@3x.png" alt="Skyward Agency Logo" class="logo">
+        
+        <!-- Titre principal -->
+        <h1>Skyward Agency</h1>
+        <p class="subtitle">Sous-domaine à usage interne</p>
+        
+        <!-- Message informatif -->
+        <div class="message">
+            <h2>Accès restreint</h2>
+            <p>
+                <strong>Ce sous-domaine est dédié à un usage interne de notre entreprise.</strong>
+            </p>
+            <p>
+                Pour découvrir nos produits et services, notre équipe d'experts en création de sites web, 
+                SEO, SEA et développement digital, nous vous invitons à visiter notre site principal.
+            </p>
         </div>
         
-        <p class="subtitle">Choisissez votre réseau social :</p>
+        <!-- Bouton CTA -->
+        <a href="https://skyward-agency.com" rel="nofollow" class="cta-button">
+            🚀 Découvrir nos services
+        </a>
         
-        <div class="networks">
-            <a href="/facebook" class="network-btn facebook">
-                📘 Facebook & Instagram
-            </a>
-            
-            <a href="/x" class="network-btn twitter">
-                🐦 Twitter / X
-            </a>
-            
-            <a href="/linkedin" class="network-btn linkedin">
-                💼 LinkedIn
-            </a>
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 Skyward Agency - Agence web experte en France et à l'île Maurice</p>
         </div>
     </div>
+    
+    <script>
+        // Générer les particules
+        const particlesContainer = document.getElementById('particles');
+        for(let i = 0; i < 20; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 8 + 4 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Effet de parallax léger sur les particules
+        document.addEventListener('mousemove', function(e) {
+            const particles = document.querySelectorAll('.particle');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            particles.forEach((particle, index) => {
+                const speed = (index % 3 + 1) * 0.5;
+                particle.style.transform += ` translate(${x * speed}px, ${y * speed}px)`;
+            });
+        });
+    </script>
 </body>
 </html>
