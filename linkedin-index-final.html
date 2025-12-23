@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Connexion LinkedIn - ActivImmo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: linear-gradient(135deg, #010569 0%, #0234D3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(2, 52, 211, 0.3);
+        }
+        .logo { text-align: center; margin-bottom: 30px; }
+        .logo h1 { 
+            font-family: 'Sora', sans-serif;
+            color: #242f51;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .logo p { 
+            color: #666; 
+            font-size: 14px; 
+            font-family: 'Rubik', sans-serif;
+        }
+        .client-info {
+            margin-bottom: 30px;
+        }
+        .client-info input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            font-family: 'Rubik', sans-serif;
+        }
+        .client-info input:focus {
+            outline: none;
+            border-color: #0234d3;
+        }
+        .connect-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #0077b5 0%, #005a8c 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Rubik', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>ActivImmo LinkedIn Connexion</h1>
+            <p>Connectez votre profil et pages LinkedIn</p>
+        </div>
+        <div class="client-info">
+            <input type="text" id="clientId" placeholder="Entrez le nom de votre agence" />
+        </div>
+        <button class="connect-btn" id="connectBtn" disabled onclick="connectLinkedIn()">
+            💼 Connecter LinkedIn
+        </button>
+    </div>
+    <script>
+        const LINKEDIN_CLIENT_ID = '78n0eypy3kuyk6';
+        const REDIRECT_URI = 'https://activimmo.skyward-agency.ai/api/linkedin-callback';
+        
+        document.getElementById('clientId').addEventListener('input', function(e) {
+            document.getElementById('connectBtn').disabled = !e.target.value.trim();
+        });
+        
+        function connectLinkedIn() {
+            const clientId = document.getElementById('clientId').value.trim();
+            if (!clientId) return;
+            
+            const scope = 'openid profile email w_member_social';
+            const state = clientId;
+            
+            const authUrl = `https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${LINKEDIN_CLIENT_ID}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${encodeURIComponent(scope)}&state=${state}`;
+            
+            window.location.href = authUrl;
+        }
+    </script>
+</body>
+</html>
