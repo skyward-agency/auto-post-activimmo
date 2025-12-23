@@ -2,37 +2,96 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Politique de confidentialité - ActivImmo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; line-height: 1.6; }
-        h1 { color: #333; }
-        h2 { color: #666; margin-top: 30px; }
+        body { 
+            font-family: 'Rubik', sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 { 
+            font-family: 'Sora', sans-serif;
+            background: linear-gradient(135deg, #010569 0%, #0234d3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        h2 { 
+            font-family: 'Sora', sans-serif;
+            color: #242f51;
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        p { margin: 15px 0; }
+        strong { color: #242f51; }
+        .company { 
+            background: #f5f7fa;
+            padding: 20px;
+            border-left: 4px solid #0234d3;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
     </style>
 </head>
 <body>
     <h1>Politique de confidentialité</h1>
-    <p><strong>Dernière mise à jour : 22 décembre 2024</strong></p>
+    <p><strong>Dernière mise à jour : 23 décembre 2024</strong></p>
+    
+    <div class="company">
+        <p><strong>Éditeur :</strong> SWA INTERNATIONAL LTD</p>
+        <p><strong>Service :</strong> ActivImmo Social Connect</p>
+        <p><strong>Contact :</strong> contact@skyward-agency.ai</p>
+    </div>
     
     <h2>1. Données collectées</h2>
-    <p>Notre application collecte uniquement les tokens d'accès Facebook et Instagram nécessaires pour publier du contenu sur vos pages et comptes professionnels.</p>
+    <p>Notre application collecte uniquement les tokens d'accès nécessaires pour publier du contenu sur vos réseaux sociaux professionnels :</p>
+    <ul>
+        <li><strong>Facebook & Instagram :</strong> Tokens d'accès aux pages et comptes Business</li>
+        <li><strong>LinkedIn :</strong> Tokens d'accès au profil et pages professionnelles</li>
+        <li><strong>Twitter/X :</strong> Tokens d'accès au compte</li>
+    </ul>
     
     <h2>2. Utilisation des données</h2>
-    <p>Les tokens d'accès sont utilisés exclusivement pour publier du contenu sur vos pages Facebook et comptes Instagram Business selon vos instructions.</p>
+    <p>Les tokens d'accès sont utilisés exclusivement pour publier du contenu sur vos comptes et pages selon vos instructions via notre plateforme ActivImmo. Aucune autre utilisation n'est effectuée.</p>
     
     <h2>3. Stockage des données</h2>
-    <p>Les tokens sont stockés de manière sécurisée dans une base de données chiffrée. Nous ne partageons jamais vos données avec des tiers.</p>
+    <p>Les tokens sont stockés de manière sécurisée dans une base de données chiffrée (Supabase). Nous ne partageons jamais vos données avec des tiers. Les données sont conservées tant que vous utilisez notre service.</p>
     
-    <h2>4. Vos droits</h2>
-    <p>Vous pouvez révoquer l'accès à tout moment depuis les paramètres de votre compte Facebook.</p>
+    <h2>4. Sécurité</h2>
+    <p>Nous utilisons des protocoles de sécurité standard de l'industrie pour protéger vos données. Les connexions sont chiffrées via HTTPS et les tokens sont stockés de manière sécurisée.</p>
     
-    <h2>5. Contact</h2>
-    <p>Pour toute question : contact@skyward-agency.ai</p>
+    <h2>5. Vos droits</h2>
+    <p>Vous pouvez à tout moment :</p>
+    <ul>
+        <li>Révoquer l'accès depuis les paramètres de chaque plateforme (Facebook, LinkedIn, Twitter/X)</li>
+        <li>Demander la suppression de vos données en nous contactant</li>
+        <li>Accéder à vos données stockées</li>
+    </ul>
+    
+    <h2>6. Réseaux sociaux concernés</h2>
+    <p>Notre service se connecte aux plateformes suivantes :</p>
+    <ul>
+        <li><strong>Facebook & Instagram</strong> - via Facebook Graph API</li>
+        <li><strong>LinkedIn</strong> - via LinkedIn API</li>
+        <li><strong>Twitter/X</strong> - via Twitter API</li>
+    </ul>
+    
+    <h2>7. Modifications</h2>
+    <p>Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Les modifications seront publiées sur cette page avec une date de mise à jour.</p>
+    
+    <h2>8. Contact</h2>
+    <p>Pour toute question concernant cette politique de confidentialité ou vos données :</p>
+    <p><strong>Email :</strong> contact@skyward-agency.ai<br>
+    <strong>Entreprise :</strong> SWA INTERNATIONAL LTD</p>
 </body>
 </html>
-```
-
-**Commit, attends 30 sec**
-
-Ensuite **retourne sur Facebook** → **Paramètres de base** et mets :
-```
-https://activimmo.skyward-agency.ai/privacy
