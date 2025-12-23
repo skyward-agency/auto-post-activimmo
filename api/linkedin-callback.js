@@ -38,21 +38,47 @@ module.exports = async (req, res) => {
     });
     const profileData = await profileRes.json();
 
-    // Sauvegarder dans Supabase
-    await fetch(`${SUPABASE_URL}/rest/v1/clients`, {
-      method: 'POST',
+    // Vérifier si le client existe déjà
+    const checkRes = await fetch(`${SUPABASE_URL}/rest/v1/clients?client_id=eq.${clientId}`, {
+      method: 'GET',
       headers: {
         'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'resolution=merge-duplicates'
-      },
-      body: JSON.stringify({
-        client_id: clientId,
-        linkedin_token: accessToken,
-        linkedin_user_id: profileData.sub
-      })
+        'Authorization': `Bearer ${SUPABASE_KEY}`
+      }
     });
+
+    const existing = await checkRes.json();
+
+    if (existing && existing.length > 0) {
+      // UPDATE
+      await fetch(`${SUPABASE_URL}/rest/v1/clients?client_id=eq.${clientId}`, {
+        method: 'PATCH',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          linkedin_token: accessToken,
+          linkedin_user_id: profileData.sub
+        })
+      });
+    } else {
+      // INSERT
+      await fetch(`${SUPABASE_URL}/rest/v1/clients`, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          client_id: clientId,
+          linkedin_token: accessToken,
+          linkedin_user_id: profileData.sub
+        })
+      });
+    }
 
     res.redirect('/success.html');
   } catch (error) {
