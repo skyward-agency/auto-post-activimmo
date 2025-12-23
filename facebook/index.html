@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Connexion réseaux sociaux - ActivImmo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +88,15 @@
     <script>
         const FB_APP_ID = '1373827507575415';
         const REDIRECT_URI = 'https://activimmo.skyward-agency.ai/facebook/callback';
+        
+        // Pré-remplir le client_id depuis l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const prefilledClientId = urlParams.get('client_id');
+        
+        if (prefilledClientId) {
+            document.getElementById('clientId').value = prefilledClientId;
+            document.getElementById('connectBtn').disabled = false;
+        }
         
         document.getElementById('clientId').addEventListener('input', function(e) {
             document.getElementById('connectBtn').disabled = !e.target.value.trim();
