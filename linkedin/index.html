@@ -89,6 +89,15 @@
         const LINKEDIN_CLIENT_ID = '78n0eypy3kuyk6';
         const REDIRECT_URI = 'https://activimmo.skyward-agency.ai/api/linkedin-callback';
         
+        // Pré-remplir le client_id depuis l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const prefilledClientId = urlParams.get('client_id');
+        
+        if (prefilledClientId) {
+            document.getElementById('clientId').value = prefilledClientId;
+            document.getElementById('connectBtn').disabled = false;
+        }
+        
         document.getElementById('clientId').addEventListener('input', function(e) {
             document.getElementById('connectBtn').disabled = !e.target.value.trim();
         });
